@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --page: #f6f4f1;
+  --paper: #ede9e3;
+  --ink: #041026;
+  --navy-mid: #16304e;
+  --navy-light: #1f466d;
+  --body: #2a3a50;
+  --muted: #6b7e92;
+  --sand: #d1c7ba;
+  --line: rgba(4, 16, 38, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: "Avenir Next", var(--font-arabic), Tajawal, Arial, sans-serif;
+  direction: rtl;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(31, 70, 109, 0.18);
+  color: var(--ink);
+}
+
+.document-shell {
+  background: var(--page);
+}
+
+.page-wrapper {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 48px, 1180px);
+  margin: 0 auto;
+  padding: 0 0 72px;
+}
+
+.slide-page {
+  break-after: page;
+  page-break-after: always;
+}
+
+.slide-page:last-child {
+  break-after: auto;
+  page-break-after: auto;
+}
+
+button {
+  font: inherit;
+}
+
+.document-section {
+  scroll-margin-top: 28px;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  :root {
+    color-scheme: light;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #121212 !important;
+    min-height: auto !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-root {
+    padding: 0 !important;
+    background: #ffffff !important;
+  }
+
+  .slide-frame {
+    min-height: auto !important;
+    width: 100% !important;
+    max-width: none !important;
+    border: 1px solid #d9d2c6 !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    color: #121212 !important;
+    overflow: visible !important;
+  }
+
+  .slide-frame *,
+  .slide-frame p,
+  .slide-frame li,
+  .slide-frame h1,
+  .slide-frame h2,
+  .slide-frame h3 {
+    color: #121212 !important;
+  }
+
+  .print-card {
+    background: #fbfaf7 !important;
+    border-color: #ddd3c0 !important;
+  }
+
+  .print-muted {
+    color: #3f3a34 !important;
+  }
+
+  .print-accent {
+    color: #7b5c1d !important;
+  }
+
+  .executive-grid {
+    display: none !important;
+  }
+
+}
