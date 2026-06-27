@@ -232,7 +232,9 @@ function GroupedRevenueCards({
           className="print-card border border-line bg-paper p-4"
         >
           <h3 className="text-base font-extrabold text-ink">{group.title}</h3>
-          <SimpleList items={group.items} />
+          <div className="mt-3">
+            <SimpleList items={group.items} />
+          </div>
         </div>
       ))}
     </div>
@@ -488,32 +490,45 @@ export const slides: Slide[] = [
   },
   {
     id: 8,
-    title: "النموذج التجاري وجلب العملاء",
+    title: "النموذج التجاري ومسار جلب العملاء",
     content: (
       <div className="grid gap-5">
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="grid gap-4 xl:grid-cols-[0.95fr_0.95fr_1.3fr]">
           <div className="print-card border border-line bg-white p-5">
-            <SectionTitle title="مصادر الإيراد" />
+            <SectionTitle label="01" title="كيف نصل للعميل؟" />
+            <div className="mt-5">
+              <SimpleList
+                items={[
+                  "العلاقات المباشرة مع أصحاب القرار",
+                  "فريق مبيعات وتطوير أعمال ميداني في الرياض",
+                  "زيارات واجتماعات مباشرة مع الشركات المستهدفة",
+                  "LinkedIn والتواصل المباشر",
+                  "الإحالات والشراكات",
+                  "محتوى تعليمي متخصص",
+                  "Digital Growth & Systems Audit"
+                ]}
+              />
+            </div>
+          </div>
+          <div className="print-card border border-line bg-white p-5">
+            <SectionTitle label="02" title="كيف نحقق الإيراد؟" />
             <div className="mt-5">
               <SimpleList
                 items={[
                   "مشاريع إطلاق رقمية",
-                  "عقود تسويق شهرية",
-                  "إدارة حملات إعلانية",
                   "تطوير مواقع وصفحات هبوط",
                   "إنشاء متاجر إلكترونية",
                   "تطوير تطبيقات جوال",
                   "إعداد CRM وأنظمة متابعة",
                   "تنفيذ ERP أو أنظمة إدارية داخلية حسب نطاق العميل",
                   "لوحات بيانات وتقارير",
-                  "صيانة ودعم شهري",
                   "استشارات تسويقية وتجارية وتشغيلية"
                 ]}
               />
             </div>
           </div>
           <div className="print-card border border-line bg-white p-5">
-            <SectionTitle title="الإيراد المتكرر" />
+            <SectionTitle label="03" title="كيف نحوله إلى دخل متكرر؟" />
             <div className="mt-5">
               <GroupedRevenueCards
                 groups={[
@@ -555,29 +570,17 @@ export const slides: Slide[] = [
               />
             </div>
           </div>
-          <div className="print-card border border-line bg-white p-5">
-            <SectionTitle title="جلب العملاء" />
-            <div className="mt-5">
-              <SimpleList
-                items={[
-                  "العلاقات المباشرة",
-                  "فريق مبيعات وتطوير أعمال ميداني في الرياض",
-                  "زيارات واجتماعات مباشرة مع الشركات المستهدفة",
-                  "LinkedIn",
-                  "التواصل المباشر مع أصحاب القرار",
-                  "الإحالات",
-                  "الشراكات",
-                  "محتوى تعليمي متخصص",
-                  "عرض مراجعة مجانية للأداء الرقمي والتشغيلي"
-                ]}
-              />
-            </div>
-          </div>
         </div>
         <HighlightCard title="Digital Growth & Systems Audit">
-          مراجعة مختصرة توضح للعميل وضعه التسويقي الحالي، أداء الموقع أو الصفحات،
-          طريقة استقبال الطلبات، طريقة متابعة العملاء، هل يحتاج CRM أو نظام داخلي،
-          وفرص تحسين المبيعات والتشغيل خلال أول 30 إلى 90 يوم.
+          <p>
+            مراجعة مختصرة توضح للعميل وضعه التسويقي الحالي، أداء الموقع أو
+            الصفحات، طريقة استقبال الطلبات، طريقة متابعة العملاء، هل يحتاج CRM
+            أو نظام داخلي، وفرص تحسين المبيعات والتشغيل خلال أول 30 إلى 90 يوم.
+          </p>
+          <p className="mt-4 text-beige">
+            العلاقة تبدأ بمراجعة مجانية أو اجتماع تشخيصي، ثم تتحول إلى مشروع
+            تأسيسي، ثم إلى عقد تشغيل أو دعم شهري متكرر.
+          </p>
         </HighlightCard>
       </div>
     )
