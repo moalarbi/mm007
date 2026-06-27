@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { ComparisonCard } from "@/components/ComparisonCard";
 import { FlowDiagram } from "@/components/FlowDiagram";
 import { HighlightCard } from "@/components/HighlightCard";
 import { ProductCard } from "@/components/ProductCard";
@@ -15,89 +14,66 @@ export type Slide = {
   content: ReactNode;
 };
 
-const operatingFlow = [
-  "إعلان",
-  "صفحة هبوط",
-  "نموذج أو واتساب",
-  "CRM",
-  "Dashboard",
-  "نظام متابعة داخلي"
-];
-
 const serviceGroups = [
   {
-    title: "التسويق والمحتوى",
+    title: "التسويق والنمو",
     items: [
-      "إدارة حسابات التواصل",
-      "خطط محتوى شهرية",
-      "كتابة النصوص التسويقية",
-      "تصاميم رقمية",
-      "محتوى قصير للفيديو",
-      "حملات إطلاق ومواسم"
+      "الاستراتيجية والمحتوى",
+      "إدارة الحسابات الرقمية",
+      "الحملات الموسمية والإطلاقات",
+      "إدارة الحملات الإعلانية",
+      "التقارير وتحسين الأداء"
     ]
   },
   {
-    title: "الإعلانات الرقمية",
-    items: [
-      "إعلانات Meta",
-      "إعلانات Snapchat",
-      "إعلانات Google",
-      "إعلانات TikTok",
-      "تحسين الحملات",
-      "تقارير أداء"
-    ]
-  },
-  {
-    title: "المواقع والمتاجر وصفحات الهبوط",
+    title: "المواقع والتجارب الرقمية",
     items: [
       "مواقع تعريفية للشركات",
       "صفحات هبوط للحملات",
       "متاجر إلكترونية",
-      "صفحات خدمات",
-      "ربط واتساب والنماذج والتحليلات",
-      "تحسين تجربة المستخدم"
+      "صفحات خدمات ونماذج تواصل",
+      "تحسين تجربة المستخدم وربط التحليلات"
     ]
   },
   {
-    title: "تطبيقات الجوال والمنتجات الرقمية",
+    title: "الحلول التقنية وأنظمة الأعمال",
     items: [
-      "تطبيقات iOS وAndroid",
-      "تطبيقات طلبات وخدمات",
-      "بوابات عملاء Client Portals",
-      "واجهات استخدام UI/UX",
-      "ربط التطبيقات بالموقع أو CRM",
-      "دعم وصيانة بعد الإطلاق"
-    ]
-  },
-  {
-    title: "أنظمة الأعمال الداخلية",
-    items: [
+      "تطبيقات الجوال",
       "CRM لإدارة العملاء",
-      "ERP مبسط لإدارة العمليات",
-      "Sales Pipeline",
-      "أنظمة إدارة الطلبات",
-      "أنظمة الموارد البشرية أو الحضور عند الحاجة",
-      "الفواتير والمتابعة",
-      "Dashboards للإدارة",
-      "أتمتة رسائل واتساب أو البريد"
+      "ERP أو أنظمة تشغيل داخلية",
+      "أنظمة الطلبات والمتابعة",
+      "لوحات البيانات والأتمتة"
+    ]
+  },
+  {
+    title: "التشغيل والدعم المستمر",
+    items: [
+      "صيانة ودعم للمواقع والتطبيقات",
+      "إدارة وتشغيل الأنظمة",
+      "تحديثات وتحسينات دورية",
+      "تدريب الفرق عند الحاجة",
+      "تقارير تشغيل ومتابعة"
     ]
   }
 ];
 
 const products = [
   {
-    title: "Digital Launch Package",
-    audience: "للشركات الجديدة أو المشاريع التي تحتاج إطلاق سريع",
+    title: "باقة الإطلاق الرقمي",
+    englishLabel: "Digital Launch Package",
+    audience: "للشركات الجديدة أو المشاريع التي تحتاج إطلاقًا سريعًا",
     items: [
       "صفحة هبوط أو موقع بسيط",
       "إعداد الحسابات الرقمية",
       "محتوى إطلاق",
       "حملة إعلانية أولى",
       "ربط واتساب والتحليلات"
-    ]
+    ],
+    goal: "إدخال العميل للسوق بسرعة وبشكل منظم."
   },
   {
-    title: "Website & E-commerce Build",
+    title: "بناء المواقع والمتاجر",
+    englishLabel: "Website & E-commerce Build",
     audience: "للشركات التي تحتاج موقعًا أو متجرًا قابلًا للتسويق والبيع",
     items: [
       "موقع تعريفي",
@@ -106,11 +82,13 @@ const products = [
       "نماذج تواصل",
       "ربط واتساب والتحليلات",
       "تهيئة أساسية لمحركات البحث"
-    ]
+    ],
+    goal: "بناء أصل رقمي يمكن استخدامه في الحملات والمبيعات."
   },
   {
-    title: "Growth Retainer",
-    audience: "للشركات التي تحتاج إدارة تسويق شهرية",
+    title: "إدارة النمو الشهري",
+    englishLabel: "Growth Retainer",
+    audience: "للشركات التي تحتاج تشغيلًا تسويقيًا شهريًا",
     items: [
       "محتوى شهري",
       "تصاميم",
@@ -118,19 +96,22 @@ const products = [
       "تقارير أداء",
       "تحسين مستمر",
       "اجتماع مراجعة شهري"
-    ]
+    ],
+    goal: "بناء علاقة تشغيل شهرية وإيراد متكرر."
   },
   {
-    title: "Business Systems Sprint",
-    audience: "للشركات التي لديها عملاء وطلبات وعمليات لكنها لا تملك نظام متابعة واضح",
+    title: "تنظيم العملاء والعمليات",
+    englishLabel: "Business Systems Sprint",
+    audience: "للشركات التي لديها عملاء وطلبات لكنها لا تملك نظام متابعة واضح",
     items: [
       "إعداد CRM",
       "تنظيم مراحل البيع",
       "أتمتة متابعة بسيطة",
       "Dashboard للإدارة",
-      "نظام داخلي مبسط للطلبات أو العمليات",
+      "نظام طلبات أو عمليات مبسط",
       "تدريب الفريق"
-    ]
+    ],
+    goal: "ربط التسويق بالمبيعات والتشغيل."
   }
 ];
 
@@ -176,16 +157,23 @@ const timeline = [
   }
 ];
 
-function BulletGrid({ items }: { items: string[] }) {
+function CapabilityGrid({
+  items
+}: {
+  items: { title: string; description: string }[];
+}) {
   return (
-    <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+    <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
       {items.map((item) => (
-        <div
-          key={item}
-          className="print-card border border-line bg-white p-4 text-sm font-bold leading-7 text-ink"
+        <article
+          key={item.title}
+          className="print-card border border-line bg-white p-5"
         >
-          {item}
-        </div>
+          <h3 className="text-lg font-extrabold text-ink">{item.title}</h3>
+          <p className="print-muted mt-3 text-sm font-medium leading-7 text-body">
+            {item.description}
+          </p>
+        </article>
       ))}
     </div>
   );
@@ -245,24 +233,41 @@ export const slides: Slide[] = [
   {
     id: 1,
     eyebrow: "تصور إداري مختصر",
-    title: "تأسيس شركة تسويق ونمو رقمي وحلول تقنية",
+    title: "تأسيس شركة تسويق ونمو رقمي وحلول تقنية للأعمال في الرياض",
     subtitle:
-      "تصور أولي لبناء شركة تقدم حلولًا متكاملة تجمع بين التسويق الرقمي، الحملات، المواقع الإلكترونية، تطبيقات الجوال، أنظمة CRM وERP، ولوحات البيانات، بهدف ربط التسويق بالمبيعات والتشغيل.",
+      "تصور إداري مختصر لبناء شركة تجمع بين التسويق الرقمي، المنتجات التقنية، أنظمة الأعمال، وقياس الأداء لمساعدة الشركات على جذب العملاء وتنظيم المتابعة وتحسين النتائج.",
     content: (
       <div className="grid h-full content-between gap-6">
-        <BulletGrid
+        <CapabilityGrid
           items={[
-            "التسويق الرقمي والمحتوى والحملات",
-            "المواقع الإلكترونية وصفحات الهبوط والمتاجر",
-            "تطبيقات الجوال والمنتجات الرقمية",
-            "CRM وERP والأنظمة الإدارية الداخلية",
-            "لوحات البيانات والأتمتة وربط التسويق بالمبيعات"
+            {
+              title: "التسويق والنمو",
+              description: "محتوى، حملات، وإدارة قنوات رقمية."
+            },
+            {
+              title: "المواقع والمتاجر",
+              description:
+                "مواقع إلكترونية، صفحات هبوط، ومتاجر قابلة للتسويق والبيع."
+            },
+            {
+              title: "تطبيقات الجوال",
+              description:
+                "تطبيقات وخدمات رقمية حسب احتياج العميل ونطاق المشروع."
+            },
+            {
+              title: "أنظمة الأعمال",
+              description:
+                "CRM، ERP، وأنظمة داخلية لتنظيم العملاء والعمليات."
+            },
+            {
+              title: "القياس والتحسين",
+              description: "Dashboards، تقارير، وتحسين مستمر للأداء."
+            }
           ]}
         />
-        <FlowDiagram steps={operatingFlow} />
         <HighlightCard title="الهدف">
-          الهدف هو بناء شركة لا تقدم خدمات تسويقية فقط، بل تبني منظومة رقمية
-          تساعد العميل على جذب العملاء، إدارتهم، وتحسين الأداء التجاري والتشغيلي.
+          الهدف هو بناء شركة لا تقدم خدمات تسويقية منفصلة فقط، بل تبني منظومة
+          رقمية تساعد العميل على جذب العملاء، إدارتهم، وقياس النتائج.
         </HighlightCard>
       </div>
     )
@@ -270,41 +275,65 @@ export const slides: Slide[] = [
   {
     id: 2,
     title: "الفكرة الرئيسية",
+    subtitle:
+      "النموذج المقترح يبني للعميل منظومة نمو رقمية وتشغيلية، بدل تنفيذ خدمات متفرقة.",
     content: (
-      <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="grid content-start gap-5">
-          <p className="print-muted max-w-3xl text-xl font-semibold leading-10 text-ink">
-            الفكرة ليست تأسيس وكالة تسويق تقليدية تقدم تصاميم وإعلانات فقط.
-            الفكرة هي بناء شركة تجمع بين التسويق والتقنية، وتساعد الشركات على
-            بناء منظومة نمو رقمية وتشغيلية.
-          </p>
-          <HighlightCard>
-            النموذج المقترح لا يبيع “إعلانات وتصاميم” فقط، بل يبني للعميل
-            منظومة نمو رقمية وتشغيلية.
-          </HighlightCard>
+      <div className="grid gap-5">
+        <p className="print-muted max-w-5xl text-xl font-semibold leading-10 text-ink">
+          الفكرة ليست تأسيس وكالة تسويق تقليدية تقدم تصاميم وإعلانات فقط، بل
+          بناء شركة تجمع بين التسويق، التقنية، وأنظمة الأعمال لمساعدة الشركات
+          على تحويل الاهتمام إلى عملاء، والعملاء إلى مبيعات قابلة للقياس.
+        </p>
+        <div className="grid gap-3 lg:grid-cols-5">
+          {[
+            {
+              title: "جذب الانتباه",
+              description: "محتوى، حملات، إعلانات، ورسائل تسويقية."
+            },
+            {
+              title: "استقبال الطلب",
+              description:
+                "موقع، صفحة هبوط، نموذج تواصل، واتساب، أو متجر إلكتروني."
+            },
+            {
+              title: "تنظيم المتابعة",
+              description: "CRM، Pipeline، تصنيف العملاء، وأتمتة المتابعة."
+            },
+            {
+              title: "قياس الأداء",
+              description: "تقارير، Dashboards، مؤشرات أداء، وتحليل النتائج."
+            },
+            {
+              title: "التحسين والنمو",
+              description:
+                "تحسين الحملات، تحسين الصفحات، تطوير الأنظمة، ورفع جودة العملاء."
+            }
+          ].map((step, index) => (
+            <article
+              key={step.title}
+              className="print-card relative border border-line bg-white p-5"
+            >
+              <span className="print-accent text-sm font-extrabold text-champagne">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-4 text-lg font-extrabold text-ink">
+                {step.title}
+              </h3>
+              <p className="print-muted mt-3 text-sm font-medium leading-7 text-body">
+                {step.description}
+              </p>
+              {index < 4 ? (
+                <span className="print-accent absolute -left-3 top-1/2 hidden -translate-y-1/2 text-lg font-black text-champagne lg:block">
+                  ←
+                </span>
+              ) : null}
+            </article>
+          ))}
         </div>
-        <div className="print-card border border-line bg-white p-5">
-          <SectionTitle label="القدرات" title="ماذا تبني الشركة للعميل؟" />
-          <div className="mt-5 grid gap-3">
-            {[
-              "بناء حضور رقمي واضح",
-              "جذب عملاء محتملين بجودة أفضل",
-              "إنشاء مواقع وصفحات هبوط فعالة",
-              "تطوير متاجر إلكترونية أو تطبيقات عند الحاجة",
-              "تنظيم استقبال ومتابعة العملاء",
-              "بناء CRM أو نظام داخلي لإدارة العمليات",
-              "ربط التسويق بالمبيعات",
-              "قياس النتائج عبر تقارير ولوحات بيانات"
-            ].map((item) => (
-              <div
-                key={item}
-                className="print-card border border-line bg-paper px-4 py-3 text-sm font-bold text-body"
-              >
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
+        <HighlightCard>
+          القيمة ليست في تنفيذ الإعلان أو التصميم فقط، بل في بناء المسار الكامل
+          من جذب العميل حتى قياس النتيجة وتحسينها.
+        </HighlightCard>
       </div>
     )
   },
@@ -312,32 +341,70 @@ export const slides: Slide[] = [
     id: 3,
     title: "الفجوة في السوق",
     subtitle:
-      "كثير من الشركات لديها نشاط تسويقي، لكنها لا تملك منظومة واضحة تربط التسويق بالنتائج.",
+      "كثير من الشركات تنفق على التسويق، لكنها لا تملك منظومة واضحة تحوّل هذا الإنفاق إلى عملاء منظمين، مبيعات قابلة للمتابعة، وقرارات مبنية على بيانات.",
     content: (
-      <div className="grid gap-6">
-        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+      <div className="grid gap-5">
+        <div className="print-card border-y border-line py-4 text-center">
+          <p className="text-lg font-bold leading-8 text-ink">
+            المشكلة ليست في وجود التسويق، بل في ضعف الربط بين التسويق، استقبال
+            الطلبات، متابعة العملاء، والقياس.
+          </p>
+          <p className="mt-2 text-sm font-bold text-champagne">
+            من الإعلان إلى الطلب إلى المتابعة إلى القرار
+          </p>
+        </div>
+        <div className="grid gap-4 lg:grid-cols-2">
           {[
-            "حملات إعلانية بدون قياس واضح",
-            "حسابات تواصل نشطة بدون أثر تجاري مباشر",
-            "مواقع إلكترونية لا تساعد على توليد العملاء",
-            "اعتماد كبير على واتساب بدون تنظيم",
-            "ضعف في متابعة العملاء المحتملين",
-            "غياب CRM أو Pipeline للمبيعات",
-            "عدم وضوح تكلفة العميل المحتمل",
-            "عدم وجود تقارير تساعد الإدارة على اتخاذ القرار",
-            "أنظمة داخلية غير مترابطة مع التسويق والمبيعات"
-          ].map((point) => (
+            {
+              title: "تسويق بدون قياس",
+              items: [
+                "حملات إعلانية دون مؤشرات واضحة",
+                "عدم وضوح تكلفة العميل المحتمل",
+                "تقارير لا تساعد الإدارة على اتخاذ القرار"
+              ]
+            },
+            {
+              title: "قنوات رقمية غير فعّالة",
+              items: [
+                "حسابات تواصل نشطة دون أثر تجاري مباشر",
+                "مواقع لا تساعد على توليد العملاء",
+                "صفحات لا تقود العميل إلى إجراء واضح"
+              ]
+            },
+            {
+              title: "متابعة عملاء غير منظمة",
+              items: [
+                "اعتماد كبير على واتساب دون تنظيم",
+                "ضعف في متابعة العملاء المحتملين",
+                "غياب CRM أو Pipeline للمبيعات"
+              ]
+            },
+            {
+              title: "تشغيل غير مترابط",
+              items: [
+                "أنظمة داخلية غير مرتبطة بالتسويق والمبيعات",
+                "ضياع الطلبات أو بطء المتابعة",
+                "غياب لوحات بيانات موحدة للإدارة"
+              ]
+            }
+          ].map((group) => (
             <article
-              key={point}
-              className="print-card border border-line bg-white p-4 text-sm font-bold leading-7 text-body"
+              key={group.title}
+              className="print-card border border-line bg-white p-5"
             >
-              {point}
+              <h3 className="text-xl font-extrabold text-ink">
+                {group.title}
+              </h3>
+              <div className="mt-5">
+                <SimpleList items={group.items} />
+              </div>
             </article>
           ))}
         </div>
         <HighlightCard>
-          هذه الفجوة تخلق فرصة لشركة تقدم التسويق كمنظومة نمو مرتبطة بالمبيعات
-          والتشغيل والتقنية.
+          هذه الفجوة تخلق فرصة لشركة تقدم منظومة تجمع بين التسويق، القنوات
+          الرقمية، المبيعات، والأنظمة التشغيلية في نموذج واحد قابل للقياس
+          والتحسين.
         </HighlightCard>
       </div>
     )
@@ -346,42 +413,74 @@ export const slides: Slide[] = [
     id: 4,
     title: "التموضع المقترح",
     subtitle:
-      "شركة تسويق ونمو رقمي وحلول تقنية تساعد الشركات في الرياض على جذب العملاء، تنظيم متابعتهم، وتحويل التسويق إلى نتائج قابلة للقياس.",
+      "شركة تسويق ونمو رقمي وحلول تقنية تساعد الشركات في الرياض على جذب العملاء، تنظيم متابعتهم، وربط التسويق بالمبيعات والتشغيل من خلال منظومة متكاملة قابلة للقياس والتحسين.",
     content: (
-      <div className="grid gap-6">
-        <MetricChips
-          items={[
-            "النمو",
-            "المبيعات",
-            "المتابعة",
-            "القياس",
-            "تحسين الأداء",
-            "بناء أنظمة تسويقية وتشغيلية واضحة",
-            "ربط التسويق بالتقنية والعمليات"
-          ]}
-        />
+      <div className="grid gap-5">
         <div className="grid gap-4 lg:grid-cols-2">
-          <ComparisonCard
-            title="النموذج التقليدي"
-            items={["منشورات", "إعلانات", "تقارير بسيطة", "خدمات منفصلة"]}
-          />
-          <ComparisonCard
-            title="النموذج المقترح"
-            featured
-            items={[
-              "استراتيجية نمو",
-              "صفحات هبوط",
-              "CRM",
-              "متابعة عملاء",
-              "Dashboards",
-              "تحسين مستمر",
-              "أنظمة داخلية عند الحاجة"
-            ]}
-          />
+          <article className="print-card border border-line bg-white p-6">
+            <p className="print-accent text-xs font-bold text-champagne">
+              كيف نتموضع في السوق؟
+            </p>
+            <h3 className="mt-3 text-2xl font-extrabold text-ink">
+              الشركة المقترحة
+            </h3>
+            <div className="mt-6">
+              <SimpleList
+                items={[
+                  "شريك نمو رقمي وتشغيلي",
+                  "يجمع بين التسويق والتقنية",
+                  "يساعد على جذب العملاء وتنظيم المتابعة",
+                  "يربط التسويق بالمبيعات والعمليات",
+                  "يبني أنظمة واضحة قابلة للقياس",
+                  "يركز على التحسين المستمر"
+                ]}
+              />
+            </div>
+          </article>
+          <article className="print-card border border-line bg-white p-6">
+            <h3 className="text-2xl font-extrabold text-ink">
+              الفرق عن الوكالة التقليدية
+            </h3>
+            <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+              <section>
+                <h4 className="text-base font-extrabold text-ink">
+                  الوكالة التقليدية
+                </h4>
+                <div className="mt-4">
+                  <SimpleList
+                    items={[
+                      "منشورات ومحتوى",
+                      "حملات إعلانية",
+                      "تقارير أداء بسيطة",
+                      "خدمات منفصلة",
+                      "تركيز على التنفيذ فقط"
+                    ]}
+                  />
+                </div>
+              </section>
+              <section className="border-t border-line pt-6 md:border-r md:border-t-0 md:pr-6 lg:border-r-0 lg:border-t lg:pr-0 xl:border-r xl:border-t-0 xl:pr-6">
+                <h4 className="text-base font-extrabold text-ink">
+                  النموذج المقترح
+                </h4>
+                <div className="mt-4">
+                  <SimpleList
+                    items={[
+                      "استراتيجية نمو",
+                      "صفحات هبوط ومواقع",
+                      "CRM ومتابعة عملاء",
+                      "Dashboards وتقارير",
+                      "حلول تقنية وأنظمة داخلية عند الحاجة",
+                      "ربط التسويق بالتشغيل والنتائج"
+                    ]}
+                  />
+                </div>
+              </section>
+            </div>
+          </article>
         </div>
         <HighlightCard>
-          الشركة لا تبيع “منشورات وإعلانات” فقط، بل تبيع نظامًا يساعد العميل
-          على تحقيق نتائج أفضل.
+          الشركة لا تبيع خدمات تسويقية منفصلة فقط، بل تبني منظومة تساعد العميل
+          على جذب العملاء، متابعتهم، وقياس النتائج بشكل أوضح وأفضل.
         </HighlightCard>
       </div>
     )
@@ -390,14 +489,11 @@ export const slides: Slide[] = [
     id: 5,
     title: "الخدمات الرئيسية",
     subtitle:
-      "الشركة تقدم خمس مجموعات خدمات رئيسية، تغطي التسويق، القنوات الرقمية، المنتجات التقنية، وأنظمة الأعمال.",
+      "تقدم الشركة أربع ركائز خدمات رئيسية تجمع بين التسويق، القنوات الرقمية، الحلول التقنية، وأنظمة الأعمال.",
     content: (
-      <div className="grid gap-4 lg:grid-cols-6">
+      <div className="grid gap-4 lg:grid-cols-2">
         {serviceGroups.map((service, index) => (
-          <div
-            key={service.title}
-            className={index < 3 ? "lg:col-span-2" : "lg:col-span-3"}
-          >
+          <div key={service.title}>
             <ServiceCard
               title={service.title}
               items={service.items}
@@ -410,9 +506,9 @@ export const slides: Slide[] = [
   },
   {
     id: 6,
-    title: "المنتجات التي نبدأ بها",
+    title: "المنتجات الأولية ومسار المشاريع المخصصة",
     subtitle:
-      "بدل إطلاق كل الخدمات من البداية، يتم البدء بمنتجات واضحة قابلة للبيع والتنفيذ والقياس.",
+      "بدل إطلاق كل الخدمات من البداية، يتم البدء بمنتجات واضحة وسهلة البيع والتنفيذ، مع إبقاء المشاريع التقنية الأكبر ضمن مسار مخصص حسب نطاق كل عميل.",
     content: (
       <div className="grid gap-5">
         <div className="grid gap-4 lg:grid-cols-2">
@@ -420,15 +516,44 @@ export const slides: Slide[] = [
             <ProductCard
               key={product.title}
               title={product.title}
+              englishLabel={product.englishLabel}
               audience={product.audience}
               items={product.items}
+              goal={product.goal}
             />
           ))}
         </div>
-        <HighlightCard title="ملاحظة تنفيذية">
-          تطبيقات الجوال والـ ERP الكامل لا يتم إطلاقها كباقة أولى إلا عند
-          وجود عميل واضح ونطاق محدد، لأنها مشاريع أكبر وتحتاج تقديرًا منفصلًا.
-        </HighlightCard>
+        <section className="print-card border border-line bg-ink p-6 text-paper">
+          <div className="grid gap-5 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+            <div>
+              <h3 className="print-accent text-base font-extrabold text-beige">
+                مسار المشاريع التقنية المخصصة
+              </h3>
+              <p className="print-muted mt-4 text-base font-medium leading-8 text-paper">
+                تطبيقات الجوال، ERP الكامل، بوابات العملاء، الأنظمة الإدارية
+                الداخلية، والتكاملات التقنية لا تُطرح كباقات بداية ثابتة، بل
+                يتم تنفيذها كمشاريع مخصصة عند وجود عميل واضح، نطاق محدد،
+                وميزانية مناسبة.
+              </p>
+            </div>
+            <ul className="grid gap-2 text-sm font-bold leading-7 text-paper sm:grid-cols-2 lg:grid-cols-1">
+              {[
+                "تطبيقات جوال",
+                "ERP وأنظمة إدارية داخلية",
+                "بوابات عملاء",
+                "أنظمة حجز أو طلبات",
+                "تكاملات API",
+                "Dashboards متقدمة",
+                "دعم وصيانة بعد الإطلاق"
+              ].map((item) => (
+                <li key={item} className="print-muted flex gap-2">
+                  <span className="mt-2.5 h-2 w-2 shrink-0 rotate-45 border border-beige bg-ink" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
       </div>
     )
   },
