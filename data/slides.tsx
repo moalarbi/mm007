@@ -219,6 +219,26 @@ function SimpleList({ items }: { items: string[] }) {
   );
 }
 
+function GroupedRevenueCards({
+  groups
+}: {
+  groups: { title: string; items: string[] }[];
+}) {
+  return (
+    <div className="grid gap-3 sm:grid-cols-2">
+      {groups.map((group) => (
+        <div
+          key={group.title}
+          className="print-card border border-line bg-paper p-4"
+        >
+          <h3 className="text-base font-extrabold text-ink">{group.title}</h3>
+          <SimpleList items={group.items} />
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export const slides: Slide[] = [
   {
     id: 1,
@@ -495,13 +515,42 @@ export const slides: Slide[] = [
           <div className="print-card border border-line bg-white p-5">
             <SectionTitle title="الإيراد المتكرر" />
             <div className="mt-5">
-              <SimpleList
-                items={[
-                  "عقود تسويق شهرية",
-                  "دعم وصيانة للمواقع والتطبيقات",
-                  "إدارة CRM",
-                  "تقارير شهرية",
-                  "تحسين مستمر للحملات والأنظمة"
+              <GroupedRevenueCards
+                groups={[
+                  {
+                    title: "تشغيل التسويق",
+                    items: [
+                      "عقود إدارة تسويق شهرية",
+                      "إدارة الحملات الإعلانية شهريًا",
+                      "إدارة المحتوى الشهري",
+                      "SEO وتحسين الظهور"
+                    ]
+                  },
+                  {
+                    title: "الدعم التقني",
+                    items: [
+                      "دعم وصيانة المواقع والمتاجر",
+                      "دعم وصيانة تطبيقات الجوال",
+                      "دعم فني شهري بنظام SLA"
+                    ]
+                  },
+                  {
+                    title: "إدارة الأنظمة",
+                    items: [
+                      "إدارة وتشغيل CRM",
+                      "إدارة وتشغيل ERP أو الأنظمة الداخلية",
+                      "أتمتة WhatsApp والبريد",
+                      "تدريب ومتابعة فرق العميل"
+                    ]
+                  },
+                  {
+                    title: "التقارير والتحسين",
+                    items: [
+                      "تقارير أداء شهرية ولوحات بيانات",
+                      "تحسين مستمر للحملات وصفحات الهبوط",
+                      "استشارات نمو شهرية للإدارة"
+                    ]
+                  }
                 ]}
               />
             </div>
